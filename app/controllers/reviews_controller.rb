@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review_restaurant, only: %i[new index show edit update create destroy]
+  before_action :set_review_restaurant, only: %i[new index show create]
+  before_action :set_review, only: %i[destroy edit update]
 
   def index
     @reviews = @restaurant.reviews
@@ -26,7 +27,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to restaurant_reviews_path(@restaurant)
+      redirect_to @review.restaurant
     else
       render :edit
     end
@@ -34,11 +35,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    if @review.destroy
-      redirect_to restaurant_reviews_path(@restaurant)
-    else
-      redirect_to restaurant_reviews_path(@restaurant)
-    end
+
+    redirect_to @review.restaurant
   end
 
   private
@@ -49,5 +47,9 @@ class ReviewsController < ApplicationController
 
   def set_review_restaurant
     @restaurant = Restaurant.find(params['restaurant_id'])
+  end
+
+  def set_review
+    @review = Review.find(params['id'])
   end
 end

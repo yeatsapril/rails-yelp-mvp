@@ -3,13 +3,13 @@
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
     <div class="container">
-      <%# THIS LINE HERE / how to delete a singular review<%= link_to edit_review_path(@restaurant) do %>
+      <%= link_to edit_review_path(review.id) do %>
         <li class="list-group-item active d-flex justify-content-between"><strong><%=@restaurant.name %></strong>
         <span class="btn btn-dark ">Edit</span></li>
-      <%#<% end %>
+      <% end %>
         <li class="list-group-item"><em>Rating: <%=review.rating %> stars</em></li>
         <li class="list-group-item"><em>Description: <%=review.content %></em></li>
-        <%# THIS LINE HERE / how to delete a singular review<li class="list-group-item btn btn-outline-dark"><%= link_to 'Delete this review', polymorphic_path(restaurant_id: @restaurant.id, id: @restaurant.review.id), method: :delete, data: { confirm: "Are you sure?" }%></li>
+        <li class="list-group-item btn btn-outline-dark"><%= link_to 'Delete this review', review_path(review.id), method: :delete, data: { confirm: "Are you sure?" }%></li>
         <br>
     </div>
   <% end %>
