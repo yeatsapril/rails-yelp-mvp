@@ -1,2 +1,5 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container border border-success p-4"><h1>Tell us what you thought:</h1></div>
+
+<%= render 'form', review: @review %>
+
+<div class="container d-flex justify-content-center"><%= link_to 'Back to the restaurant', restaurant_path(@restaurant), class: "btn btn-dark" %> </div>

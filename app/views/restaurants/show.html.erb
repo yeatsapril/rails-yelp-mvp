@@ -3,7 +3,11 @@
 <div class="container border-bottom border-primary mt-4"><p>Tel: <%= @restaurant.phone_number %></p></div>
 <div class="container border-bottom border-primary mt-4"><p><%= @restaurant.category %></p></div>
 
+
+<div class="alert alert-dark" role="alert"> <%= link_to 'Click here to add a review!', new_restaurant_review_path(@restaurant), class: "alert-link" %> </div>
+
 <div class="container d-flex justify-content-between mt-4">
+  <div class="btn btn-outline-dark"><%= link_to 'Show reviews', restaurant_reviews_path(@restaurant)%></div>
   <div class="btn btn-outline-dark"><%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant)%></div>
   <div class="btn btn-outline-dark"><%= link_to 'Delete this restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?" }%></div>
   <div class="btn btn-outline-dark"><%= link_to 'Back to restaurants', restaurants_path %></div>

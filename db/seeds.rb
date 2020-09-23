@@ -8,6 +8,9 @@
 require 'faker'
 # TODO: Write a seed to insert 100 posts in the database
 
+puts 'Cleaning database...'
+Restaurant.destroy_all
+
 puts 'Creating 10 fake restaurants...'
 10.times do
   Restaurant.create(

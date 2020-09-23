@@ -1,0 +1,6 @@
+<div class="container p-4"><%= simple_form_for([@restaurant, @review]) do |form| %>
+  <%= form.input :rating, as: :select, collection: 0..5, placeholder: '5 Stars!' %>
+  <%= form.input :content, prompt: 'What did you think?' %>
+  <%= form.submit action_name == 'new' ? 'save review' : 'edit review', class: "btn btn-success" %>
+<% end %>
+</div>
