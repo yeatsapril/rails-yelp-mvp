@@ -1,2 +1,5 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
+<div class="container border border-success p-4"><h1>Add a new Restaurant</h1></div>
+
+<%= render 'form', restaurant: @restaurant %>
+
+<div class="container d-flex justify-content-center"><%= link_to 'Back to restaurants', restaurants_path, class: "btn btn-dark" %> </div>

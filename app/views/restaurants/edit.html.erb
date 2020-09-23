@@ -1,2 +1,4 @@
-<h1>Restaurants#edit</h1>
-<p>Find me in app/views/restaurants/edit.html.erb</p>
+
+<div class="container border border-success p-4"><h1>Edit restaurant: <%= @restaurant.name %></h1></div>
+
+<%= render 'form', restaurant: @restaurant %>

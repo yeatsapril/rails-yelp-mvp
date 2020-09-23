@@ -1,0 +1,8 @@
+<div class="container p-4"><%= simple_form_for(restaurant) do |form| %>
+  <%= form.input :name, placeholder: 'Type the name..' %>
+  <%= form.input :address, placeholder: 'Type an address..' %>
+  <%= form.input :phone_number, placeholder: 'Type the phone number..' %>
+  <%= form.input :category, placeholder: 'Type the category..' %>
+  <%= form.submit action_name == 'new' ? 'save restaurant' : 'edit restaurant', class: "btn btn-success" %>
+<% end %>
+</div>
